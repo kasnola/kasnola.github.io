@@ -5,6 +5,7 @@ body {
     padding: 10px;
     font-family: arial;
 }
+
 #all-contents {
   max-width: 800px;
     margin: auto;
@@ -13,11 +14,13 @@ body {
 /* navigation menu */
 nav {
     background: rgb(56, 4, 71);
-   margin: 0 auto;
-   margin-bottom: 20px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
     display: flex;
     padding: 10px;  
 }
+
 h1 {
     display: flex;
     align-items: center;
@@ -25,30 +28,38 @@ h1 {
     flex: 1;
     margin: 0;
 }
+
 #nav-ul {
     list-style-image: none;
 }
+
 .nav-li {
     display: inline-block;
     padding: 0 10px;
 }
+
 a {
     text-decoration: none;
     color: #b676b0;
 }
 
+
 /* main container area beneath menu */
 main {
     background: rgb(227, 217, 255);
+    border-radius: 10px;
     display: flex;
 }
+
 .sidebar {
     margin-right: 25px;
     padding: 10px;
 }
+
 .sidebar-img {
     width: 200px;
 }
+
 .content {
     flex: 1;
     padding: 15px;
@@ -60,6 +71,32 @@ main {
     border-radius: 18px;
     padding: 8px;
 }
+
 h2, h3 {
     margin: 0px;
+}
+
+.content h1 {
+    color: black;
+}
+
+#portfolio {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#portfolio li {
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+#portfolio li:hover {
+    background: #eee;
+}
+
+#portfolio a {
+    text-decoration: none;
+    color: #454545;
 }
