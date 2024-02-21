@@ -1,2 +1,2 @@
 # kasnola.github.io
-hello world
+TODO: add a par time & stopwatch to the platformer project
