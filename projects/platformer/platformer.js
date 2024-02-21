@@ -28,12 +28,12 @@ $(function () {
      * Comment the lines out to remove the grid
      */
 
-    for (let i = 100; i < canvas.width; i += 100) {
-      createPlatform(i, canvas.height, -1, -canvas.height);
-    }
-    for (let i = 100; i < canvas.height; i += 100) {
-      createPlatform(canvas.width, i, -canvas.width, -1);
-    }
+    // for (let i = 100; i < canvas.width; i += 100) {
+    //   createPlatform(i, canvas.height, -1, -canvas.height);
+    // }
+    // for (let i = 100; i < canvas.height; i += 100) {
+    //   createPlatform(canvas.width, i, -canvas.width, -1);
+    // }
 
     /////////////////////////////////////////////////
     //////////ONLY CHANGE BELOW THIS POINT///////////
