@@ -8,12 +8,12 @@
       .box {
         width: 100px;
         height: 100px;
-		background-image: url(heada1.png);
-		background-size: cover;
+        background-image: url(heada1.png);
+        background-size: cover;
         font-size: 250%;
-		color: white;
+        color: white;
         text-align: center;
-		line-height: 100px;
+        line-height: 100px;
         user-select: none;
         display: block;
         position: absolute;
@@ -22,8 +22,8 @@
       }
       .board {
         height: 100vh;
-		background-image: url(fireblu.gif);
-		background-size: auto;
+        background-image: url(fireblu.gif);
+        background-size: auto;
       }
     </style>
     <!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
@@ -44,16 +44,19 @@
         var box = jQuery(".box"); // reference to the HTML .box element
         var board = jQuery(".board"); // reference to the HTML .board element
         var boardWidth = board.width(); // the maximum X-Coordinate of the screen
+        var boardHeight = jQuery(window).height(); // the maximum Y-Coordinate of the screen
 
-        // Every 50 milliseconds, call the update Function (see below)
-        setInterval(update, 50);
+        // call update every 10 milliseconds. default 50
+        var interval = setInterval(update, 10);
 
         // Every time the box is clicked, call the handleBoxClick Function (see below)
         box.on("click", handleBoxClick);
+        board.on("click", handleBoardClick);
 
         // moves the Box to a new position on the screen along the X-Axis
-        function moveBoxTo(newPositionX) {
+        function moveBoxTo(newPositionX, newPositionY) {
           box.css("left", newPositionX);
+          box.css('top', newPositionY);
         }
 
         // changes the text displayed on the Box
@@ -65,23 +68,33 @@
         /////////////////// YOUR CODE BELOW HERE /////////////////////////
         //////////////////////////////////////////////////////////////////
 
+        console.log(`boardWidth is ${boardWidth}`);
+        console.log(`boardHeight is ${boardHeight}`);
+
         // TODO 2 - Variable declarations
         var positionX = 0;
+        var positionY = 0;
+        var speedY = 2;
+        var speed = 2;
+        var acceleration = 0;
+        var accelerationY = 0;
         var points = 0;
-        var speed = 10;
-        /* 
-			This Function will be called 20 times/second. Each time it is called,
+        var misclicks = 0;
+        var colorStr;
+        /*  
+			This Function will be called 100 times/second (default 20). Each time it is called,
 			it should move the Box to a new location. If the box drifts off the screen
 			turn it around! 
 			*/
         function update() {
           positionX = positionX + speed;
-          moveBoxTo(positionX); // goes off right edge at 1600
-          if (positionX < 0) {
+          positionY = positionY + speedY;
+          moveBoxTo(positionX, positionY); // goes off right edge at 1600
+          if (positionX < 0 || positionX > boardWidth) {
             speed = -speed;
-		  }
-		  else if (positionX > boardWidth) {
-            speed = -speed;
+          }
+          if (positionY < 0 || positionY > boardHeight) {
+            speedY = -speedY;
           }
         }
 
@@ -92,16 +105,52 @@
 			*/
         function handleBoxClick() {
           // console.log(positionX);
-          positionX = 0; // Reassigning the positionX variable to 0 so that the box will move back to the left side of the screen
+          positionX = Math.random() * boardWidth;
+          positionY = Math.random() * boardHeight;
           points = points + 1;
-          if (speed > 0) { 
-		    speed += 3;
-		  }
-		  else if (speed < 0) {
-			speed -= 3;
-		  }
+          misclicks = misclicks - 1;
+          if (Math.round(speed % 3) == 0 ) {
+            acceleration = acceleration + 0.5
+          }
+          if (Math.round(speedY % 3) == 0 ) {
+            accelerationY = accelerationY + 0.5
+          }
+
+          if (speed > 0) {
+            speed += 1 + acceleration;
+          } 
+          else if (speed < 0) {
+            speed -= 1 + acceleration;
+          }
+          if (speedY > 0) {
+            speedY += 1 + accelerationY;
+          }
+          else if (speedY < 0) {
+            speedY -= 1 + accelerationY;
+          }
+
           changeBoxText(points);
-		  // console.log(speed);
+          console.log(`speed is ${speed}`);
+          console.log(`speedY is ${speedY}`);
+          console.log(`accelerationY is ${accelerationY}`);
+          console.log(`acceleration is ${acceleration}`);
+        }
+
+        // TODO: make the monster "scream" on a misclick
+        function handleBoardClick() {
+          misclicks = misclicks + 1;
+          console.log(`boardclick was called. misclicks is ${misclicks}`)
+          colorStr = `rgb(${255 - (25.5 * misclicks)}, ${255 - (25.5 * misclicks)}, ${255 - (25.5 * misclicks)})`
+          box.css('color', colorStr);
+          if (misclicks > 10) {
+            endGame();
+          }
+        }
+        
+        function endGame() {
+          clearInterval(interval);
+          changeBoxText("RIP");
+          // TODO: kill the monster
         }
       })();
     </script>
