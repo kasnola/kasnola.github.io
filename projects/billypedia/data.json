@@ -1,0 +1,47 @@
+{
+    "discography": {
+        "topRated": [
+            {"title": "Voice in the Night", "artist": "Charles Lloyd", "release": "ECM", "year": 1999, "art": "images/album/voice-in-the-night.jpg"},
+            {"title": "The Shape of Jazz to Come", "artist": "Ornette Coleman", "release": "Atlantic", "year": 1959, "art": "images/album/the-shape-of-jazz-to-come.jpg"},
+            {"title": "Like Sonny", "artist": "John Coltrane", "release": "Roulette", "year": 1960, "art": "images/album/like-sonny.jpg"},
+            {"title": "Go", "artist": "Dexter Gordon", "release": "Blue Note", "year": 1962, "art": "images/album/go.jpg"},
+            {"title": "The Water Is Wide", "artist": "Charles Lloyd", "release": "ECM", "year": 2000, "art": "images/album/the-water-is-wide.jpg"}
+            ],
+        "recordings": [
+            {"title": "Eastern Rebellion", "artist": "Cedar Walton", "release": "Timeless", "year": 1976, "art": "images/album/eastern-rebellion.jpg"},
+            {"title": "Soul Food", "artist": "Bobby Timmons", "release": "Prestige", "year": 1966, "art": "images/album/soul-food.jpg"},
+            {"title": "A Swingin' Affair", "artist": "Dexter Gordon", "release": "Blue Note", "year": 1962, "art": "images/album/a-swingin-affair.jpg"},
+            {"title": "Rejoice", "artist": "Pharoah Sanders", "release": "Theresa", "year": 1981, "art": "images/album/rejoice.jpg"},
+            {"title": "Our Man in Jazz", "artist": "Sonny Rollins", "release": "RCA Victor", "year": 1965, "art": "images/album/our-man-in-jazz.jpg"},
+            {"title": "The Sidewinder", "artist": "Lee Morgan", "release": "Blue Note", "year": 1963, "art": "images/album/the-sidewinder.jpg"},
+            {"title": "Thelonious Monk at the Blackhawk", "artist": "Thelonious Monk", "release": "Riverside", "year": 1960, "art": "images/album/thelonious-monk-at-the-blackhawk.jpg"},
+            {"title": "A Caddy for Daddy", "artist": "Hank Mobley", "release": "Blue Note", "year": 1965, "art": "images/album/a-caddy-for-daddy.jpg"},
+            {"title": "Rejoicing", "artist": "Pat Metheny", "release": "ECM", "year": 1983, "art": "images/album/rejoicing.jpg"},
+            {"title": "Quartet West", "artist": "Charlie Haden", "release": "Verve", "year": 1986, "art": "images/album/quartet-west.jpg"}
+            ]
+    },
+    "rider": [
+        {"type": "Drum", "desc": "16\" x 14\" Gretsch Bass Drum"},
+        {"type": "Drum", "desc": "14\" x 14\" Gretsch Floor Tom"},
+        {"type": "Drum", "desc": "12\" x 8\" Gretsch Tom"},
+        {"type": "Drum", "desc": "14\" x 6\" Gretsch Snare Drum"},
+        {"type": "Cymbal", "desc": "24\" Zildjian Turkish K Ride Cymbal"},
+        {"type": "Cymbal", "desc": "18\" Zildjian Turkish K Ride Cymbal"},
+        {"type": "Cymbal", "desc": "14\" Zildjian Turkish K Hi Hats"},
+        {"type": "Hardware", "desc": "Yamaha Cymbal Stand with Short Boom"},
+        {"type": "Hardware", "desc": "Yamaha Cymbal Stand with Short Boom"},
+        {"type": "Hardware", "desc": "Pearl Eliminator P2000C Kick Pedal"},
+        {"type": "Hardware", "desc": "Yamaha Hi Hat Stand"},
+        {"type": "Hardware", "desc": "Yamaha Bass Drum Tom Mount"},
+        {"type": "Hardware", "desc": "Gretsch Floor Tom Legs, 3"},
+        {"type": "Carpet", "desc": "Persian carpet, 8 ft x 8 ft, cleaned"}
+        ],
+    "images": {
+        "billy": [
+            "images/billy/billy-0.jpg",
+            "images/billy/billy-1.jpg",
+            "images/billy/billy-2.jpg",
+            "images/billy/billy-3.jpg"
+            ]
+    }
+}

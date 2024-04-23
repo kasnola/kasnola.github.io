@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.5.3/mocha.min.css">
+  <script src="https://www.w3schools.com/lib/w3.js"></script>
+  <style>
+    .test {
+      background: white;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body class="test">
+  <div class="hidden">
+    <div w3-include-html="index.html"></div>
+  </div>
+  
+  <div id="mocha"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.5.3/mocha.min.js"></script>
+  <script>
+    w3.includeHTML();
+    mocha.setup('');
+  </script>
+  <script src="lib/spin.min.js"></script>
+  <script src="lib/pacifier.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.1.2/chai.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.4.0/lodash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sinon.js/4.0.0/sinon.min.js"></script>
+  <script>
+    var assert = chai.assert;
+    var expect = chai.expect;
+    var should = chai.should();
+  </script>
+
+  <!-- include source files here... -->
+  <script src="./index.js"></script>
+
+  <!-- include spec files here... -->
+  <script src="spec/index.spec.js"></script>
+</body>
+
+</html>
