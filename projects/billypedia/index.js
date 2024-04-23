@@ -6,12 +6,12 @@ $(document).ready(function() {
 
         // uncomment this to inspect all available data; delete when done //
 
-        // EXAMPLE: Looping over top rated recordings; replace with your code //
-        // let topRated = data.discography.topRated;
-        // _.forEach(topRated, function(recording) {
-        //     console.log(recording);
-        // });
-
+        // EXAMPLE: Looping over top rated recordings; replace with your code
+        let topRated = data.discography.topRated;
+        _.forEach(topRated, function(recording) {
+            console.log(recording);
+        });
+        
 
         // YOUR CODE ABOVE HERE //
     })
