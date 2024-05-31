@@ -1,0 +1,7 @@
+freedoom assets
+
+enemy: worm (sargc3c7) / skull thing (bosf*0)
+background: interpic
+powerup: green star thing (pinv*0)
+finish line: lava (lfall*)
+obstacle: barrel (bexp*0) / fireball

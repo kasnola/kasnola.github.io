@@ -14,12 +14,48 @@ var runLevels = function (window) {
     var levelData = window.opspark.levelData;
 
     // set this to true or false depending on if you want to see hitzones
-    game.setDebugMode(true);
+    game.setDebugMode(false);
 
     // TODOs 5 through 11 go here
     // BEGIN EDITING YOUR CODE HERE
+    function createObstacle(x, y) {
+      var hitZoneSize = 25;
+      var damageFromObstacle = 10;
+      var ballHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
+      ballHitZone.x = x;
+      ballHitZone.y = groundY - y;
+      
+      var obstacleImage = draw.bitmap("img/plsea0.png");
+      obstacleImage.x = -24;
+      obstacleImage.y = -24;
+      obstacleImage.scaleX = 2;
+      obstacleImage.scaleY = 2;
+      
+      ballHitZone.addChild(obstacleImage);
+      game.addGameItem(ballHitZone);
+    }
 
+    createObstacle(400, 32);
+    createObstacle(800, 16);
+    createObstacle(1600, 64);
+
+    var enemy = game.createGameItem("enemy", 25);
+    var skull = draw.bitmap("img/bosfa0.png");
     
+    skull.x = -24;
+    skull.y = -24;
+
+    enemy.addChild(skull);
+    enemy.x = 400;
+    enemy.y = groundY - 48;
+    enemy.velocityX = -1;
+    enemy.onPlayerCollision = function () { game.changeIntegrity(-50) };
+    enemy.onProjectileCollision = function () {
+      game.increaseScore(100);
+      enemy.shrink();
+    } ;
+
+    game.addGameItem(enemy);
 
     function startLevel() {
       // TODO 13 goes below here
