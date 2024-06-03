@@ -35,33 +35,65 @@ var runLevels = function (window) {
       game.addGameItem(ballHitZone);
     }
 
-    createObstacle(400, 32);
-    createObstacle(800, 16);
-    createObstacle(1600, 64);
-
-    var enemy = game.createGameItem("enemy", 25);
-    var skull = draw.bitmap("img/bosfa0.png");
+    function createEnemy(x, y) {
+      var enemy = game.createGameItem("enemy", 25);
+      var skull = draw.bitmap("img/bosfa0.png");
+      
+      enemy.addChild(skull);
+      enemy.x = x;
+      enemy.y = groundY - y;
+      enemy.velocityX = -1;
+      enemy.onPlayerCollision = function () { game.changeIntegrity(-20) };
+      enemy.onProjectileCollision = function () {
+        game.increaseScore(100);
+        enemy.shrink();
+      } ;
+      
+      skull.x = -24;
+      skull.y = -24;
+      
+      game.addGameItem(enemy);
+    }
     
-    skull.x = -24;
-    skull.y = -24;
-
-    enemy.addChild(skull);
-    enemy.x = 400;
-    enemy.y = groundY - 48;
-    enemy.velocityX = -1;
-    enemy.onPlayerCollision = function () { game.changeIntegrity(-50) };
-    enemy.onProjectileCollision = function () {
-      game.increaseScore(100);
-      enemy.shrink();
-    } ;
-
-    game.addGameItem(enemy);
-
+    function createReward(x, y) {
+      var reward = game.createGameItem("reward", 36); // intentional
+      var orb = draw.bitmap("img/pinva0.png");
+      
+      reward.addChild(orb);
+      reward.x = x;
+      reward.y = groundY - y;
+      reward.velocityX = -1;
+      reward.onPlayerCollision = function () { game.changeIntegrity(50) };
+      
+      orb.x = -20;
+      orb.scaleX = 1.5;
+      orb.y = -20;
+      orb.scaleY = 1.5;
+      
+      game.addGameItem(reward);
+    }
+    
     function startLevel() {
       // TODO 13 goes below here
-
-
-
+      var level = levelData[currentLevel]
+      var levelObjects = level.gameItems
+      
+      for (let i = 0; i < levelObjects.length; i++) {
+        let obj = levelObjects[i];
+        if (obj.type === "obstacle") {
+          createObstacle(obj.x, obj.y);
+        }
+        else if (obj.type === "enemy") {
+          createEnemy(obj.x, obj.y);
+        }
+        else if (obj.type === "reward") {
+          createReward(obj.x, obj.y);
+        }
+        else if (obj.type === "marker") {
+          createMarker(obj.x, obj.y);
+        }
+      }
+      
       //////////////////////////////////////////////
       // DO NOT EDIT CODE BELOW HERE
       //////////////////////////////////////////////
@@ -71,7 +103,27 @@ var runLevels = function (window) {
         };
       }
     }
+    
     startLevel();
+
+    function createMarker(x, y) {
+      var marker = game.createGameItem("marker", 64);
+      var exit = draw.bitmap("img/lfall3.png");
+    
+      marker.addChild(exit);
+      marker.x = x;
+      marker.y = groundY - 32;
+      marker.velocityX = -1;
+      marker.onPlayerCollision = function () { startLevel() };
+      marker.onProjectileCollision = function () { startLevel() };
+    
+      exit.x = -64;
+      exit.scaleX = 1;
+      exit.y = -128;
+      exit.scaleY = 1.5;
+
+      game.addGameItem(marker);
+    }
   };
 };
 
