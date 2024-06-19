@@ -19,6 +19,7 @@ nav {
     border-radius: 10px;
     display: flex;
     padding: 10px;  
+    font-family: "Ubuntu", monospace
 }
 
 h1 {
@@ -27,6 +28,10 @@ h1 {
     color: rgb(187, 187, 187);
     flex: 1;
     margin: 0;
+}
+
+#nav-title {
+    font-size: 1.6em;
 }
 
 #nav-ul {
@@ -70,6 +75,7 @@ main {
     border: 4px rgb(106, 22, 109) dotted;
     border-radius: 18px;
     padding: 8px;
+    margin-top: 12px;
 }
 
 h2, h3 {
@@ -99,4 +105,9 @@ h2, h3 {
 #portfolio a {
     text-decoration: none;
     color: #454545;
+}
+
+#interests a {
+    text-decoration: none;
+    border-bottom: 2px dashed #454545;
 }
