@@ -11,12 +11,18 @@ body {
   position: relative;
 }
 
-#walker {
-  background-color: teal;
+#walker1 {
+  background-color: rgb(128, 128, 0);
   width: 50px;
   height: 50px;
   position: absolute;
   border-radius: 20%;
-/*   left: 100px; */  /* Uncomment if you want to set a "starting" position */
-/*   top: 100px;  */  /* Uncomment if you want to set a "starting" position */
+}
+
+#walker2 {
+  background-color: rgb(128, 0, 128);
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  border-radius: 20%;
 }
