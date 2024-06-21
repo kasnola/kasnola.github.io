@@ -21,10 +21,15 @@ function runProgram() {
     S: 83,
     D: 68,
   };
-  const WALLRIGHT = $("#board").width();
-  const WALLBOTTOM = $("#board").height();
-  const WALLTOP = 0;
-  const WALLLEFT = 0;
+  const WALL = {
+    RIGHT: $("#board").width(),
+    BOTTOM: $("#board").height(),
+    TOP: 0,
+    LEFT: 0,
+  };
+  const NEWHEIGHT = 600;
+  const NEWWIDTH = 600;
+  const ITACCEL = 0.75;
   // Game Item Objects
   let walker1 = {
     x: 0,
@@ -46,6 +51,7 @@ function runProgram() {
     width: 50,
     height: 50,
   };
+  let walkerIt = walker2;
   let gameOn = false;
 
   // one-time setup
@@ -63,10 +69,10 @@ function runProgram() {
   by calling this function and executing the code inside.
   */
   function newFrame() {
-    // debugger;
-    // right now the movement is 'stuttery' and i have a feeling it's because
-    // of the order of the function calls... maybe it'd be fixed by
-    // iterating over an array instead?
+    // ATTENTION: copy kate's TODO syntax highlighting to vscode todohighlight settings.json
+    // TODO: right now the movement 'stutters' when you try to swap directions too fast
+    // and i have a feeling it's because of the order of the function calls... maybe
+    // it'd be fixed by implementing some debounce or iterating over an array instead?
     repositionGameItem(walker1);
     wallCollision(walker1);
     redrawGameItem(walker1);
@@ -144,10 +150,10 @@ function runProgram() {
   }
 
   function wallCollision(walker) {
-    if (walker.x > WALLRIGHT - walker.$.width() || walker.x < WALLLEFT) {
+    if (walker.x > WALL.RIGHT - walker.$.width() || walker.x < WALL.LEFT) {
       walker.x -= walker.speedX * walker.accel;
     }
-    if (walker.y > WALLBOTTOM - walker.$.height() || walker.y < WALLTOP) {
+    if (walker.y > WALL.BOTTOM - walker.$.height() || walker.y < WALL.TOP) {
       walker.y -= walker.speedY * walker.accel;
     }
   }
@@ -164,38 +170,43 @@ function runProgram() {
     walker2.top = walker2.y;
     walker2.right = walker2.x + walker2.width;
     walker2.bottom = walker2.y + walker2.height;
-    function resetPos(walker1, walker2){
-      walker2.x = 0;
-      walker2.y = 0;
-      walker1.x = WALLRIGHT - walker1.$.width();
-      walker1.y = WALLBOTTOM - walker1.$.width();
+
+    function resetPos(walker1, walker2) {
+      walker1.x = 0;
+      walker1.y = 0;
+      walker2.x = WALL.RIGHT - walker2.$.width();
+      walker2.y = WALL.BOTTOM - walker2.$.width();
     }
+
     let colliding =
       walker1.left < walker2.right &&
       walker1.right > walker2.left &&
       walker1.top < walker2.bottom &&
       walker1.bottom > walker2.top;
-    // debugger;
-    let walkerIt = Math.random() > 0.5 ? walker1 : walker2;
+
     if (colliding && !gameOn) {
-      // console.log("colliding! game is not on");
       walkerIt.$.css("background-color", "red");
-      walkerIt.accel = 0.5;
+      walkerIt.accel = ITACCEL;
+      $("#board").width(NEWWIDTH);
+      $("#board").height(NEWHEIGHT);
+      WALL.RIGHT = $("#board").width();
+      WALL.BOTTOM = $("#board").height();
       resetPos(walker1, walker2);
       gameOn = true;
     } else if (colliding && gameOn) {
+      // debugger;
       console.log("colliding! game is on");
       walkerIt.$.css("background-color", "blue");
       resetPos(walker1, walker2);
-
-      walkerIt = walkerIt === walker1 ? walker2 : walker1
+      walkerIt.accel = 1;
+      walkerIt = walkerIt === walker1 ? walker2 : walker1;
+      console.log(walkerIt);
       walkerIt.$.css("background-color", "red");
-      walkerIt.accel = 0.8;
-    } else {
-      console.log("nocolliding");
+      walkerIt.accel = ITACCEL;
     }
   }
   function endGame() {
+    // when is this supposed to be used?
     // stop the interval timer
     clearInterval(interval);
 
