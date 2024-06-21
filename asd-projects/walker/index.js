@@ -185,6 +185,7 @@ function runProgram() {
       walker1.bottom > walker2.top;
 
     if (colliding && !gameOn) {
+      walker1.$.css("background-color", "blue");
       walkerIt.$.css("background-color", "red");
       walkerIt.accel = ITACCEL;
       $("#board").width(NEWWIDTH);
