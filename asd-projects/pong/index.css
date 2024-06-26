@@ -8,6 +8,8 @@ body {
 	border: 1px solid white;
 	background-color: black;
 	position: relative;
+	justify-content: center;
+	align-items: center;
 }
 
 /* #gameItem {
@@ -37,7 +39,7 @@ body {
 
 	/* positioning */
 	position: absolute;
-	top: 0px;
+	top: 360px;
 	left: 420px;
 }
 
@@ -52,4 +54,57 @@ body {
 	position: absolute;
 	top: 220px;
 	left: 220px;
+}
+
+.score {
+	background-color: white;
+	width: 440px;
+	height: 120px;
+	border-radius: 10px;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 1%;
+	font-family: "Ubuntu", monospace;
+	font-size: 40pt;
+	text-align: center;
+}
+
+#leftScore {
+	position: relative;
+	width: 35%;
+	height: 85%;
+	background-color: red;
+	border-radius: 10px;
+	font-size: 25pt;
+	text-align: center;
+	margin: 2%;
+}
+
+#rightScore {
+	position: relative;
+	width: 35%;
+	height: 85%;
+	background-color: blue;
+	border-radius: 10px;
+	font-size: 25pt;
+	text-align: center;
+	margin: 2%;
+}
+
+button {
+	margin-top: 8px;
+	width: 256px;
+	font-size: 1rem;
+	height: 48px;
+	cursor: pointer;
+}
+
+#vertical-line {
+	position: relative;
+	margin: auto;
+	height: 100%;
+	width: 0%;
+	border-width: 1px;
+	border-style: dashed;
+	border-color: white;
 }
