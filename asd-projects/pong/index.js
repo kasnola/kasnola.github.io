@@ -209,10 +209,10 @@ function runProgram() {
 
 	function winCondition() {
 		if (leftScore.no >= 10) {
-			endGame("blue");
+			endGame("red");
 		}
 		if (rightScore.no >= 10) {
-			endGame("red");
+			endGame("blue");
 		}
 	}
 
