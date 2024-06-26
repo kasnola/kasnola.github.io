@@ -1,113 +1,113 @@
 /* customize the background & colors from defaults */
 body {
-    background: rgb(20, 20, 20);
-    color: rgb(0, 0, 0);
-    padding: 10px;
-    font-family: arial;
+	background: rgb(20, 20, 20);
+	color: rgb(0, 0, 0);
+	padding: 10px;
+	font-family: arial;
 }
 
 #all-contents {
-  max-width: 800px;
-    margin: auto;
+	max-width: 800px;
+	margin: auto;
 }
 
 /* navigation menu */
 nav {
-    background: rgb(56, 4, 71);
-    margin: 0 auto;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    display: flex;
-    padding: 10px;  
-    font-family: "Ubuntu", monospace
+	background: rgb(56, 4, 71);
+	margin: 0 auto;
+	margin-bottom: 20px;
+	border-radius: 10px;
+	display: flex;
+	padding: 10px;
+	font-family: "Ubuntu", monospace;
 }
 
 h1 {
-    display: flex;
-    align-items: center;
-    color: rgb(187, 187, 187);
-    flex: 1;
-    margin: 0;
+	display: flex;
+	align-items: center;
+	color: rgb(187, 187, 187);
+	flex: 1;
+	margin: 0;
 }
 
 #nav-title {
-    font-size: 1.6em;
+	font-size: 1.6em;
 }
 
 #nav-ul {
-    list-style-image: none;
+	list-style-image: none;
 }
 
 .nav-li {
-    display: inline-block;
-    padding: 0 10px;
+	display: inline-block;
+	padding: 0 10px;
 }
 
 a {
-    text-decoration: none;
-    color: #b676b0;
+	text-decoration: none;
+	color: #b676b0;
 }
-
 
 /* main container area beneath menu */
 main {
-    background: rgb(227, 217, 255);
-    border-radius: 10px;
-    display: flex;
+	background: rgb(227, 217, 255);
+	border-radius: 10px;
+	display: flex;
 }
 
 .sidebar {
-    margin-right: 25px;
-    padding: 10px;
+	margin-right: 25px;
+	padding: 10px;
 }
 
 .sidebar-img {
-    width: 200px;
+	width: 200px;
 }
 
 .content {
-    flex: 1;
-    padding: 15px;
+	flex: 1;
+	padding: 15px;
 }
 
 /* portfolio styles */
 #interests {
-    border: 4px rgb(106, 22, 109) dotted;
-    border-radius: 18px;
-    padding: 8px;
-    margin-top: 12px;
+	border: 4px rgb(106, 22, 109) dotted;
+	border-radius: 18px;
+	padding: 8px;
+	margin-top: 12px;
 }
 
-h2, h3 {
-    margin: 0px;
+h2,
+h3 {
+	margin: 0px;
 }
 
 .content h1 {
-    color: black;
+	color: black;
 }
 
 #portfolio {
-    list-style-type: none;
-    padding-left: 0;
+	list-style-type: none;
+	padding-left: 0;
 }
 
 #portfolio li {
-    background: #fff;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 10px;
+	background: #fff;
+	padding: 10px;
+	border-radius: 10px;
+	margin-bottom: 10px;
 }
 
 #portfolio li:hover {
-    background: #eee;
+	background: #eee;
 }
 
 #portfolio a {
-    text-decoration: none;
-    color: #454545;
+	text-decoration: none;
+	color: #454545;
 }
 
 #interests a {
-    text-decoration: none;
-    border-bottom: 2px dashed #454545;
+	text-decoration: none;
+	border-bottom: 2px dashed #454545;
 }
